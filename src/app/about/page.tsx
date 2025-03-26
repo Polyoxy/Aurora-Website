@@ -98,7 +98,7 @@ export default function AboutPage() {
             >
               <div className="w-32 h-32 rounded-full bg-gray-800 mb-4 overflow-hidden relative">
                 <Image 
-                  src="https://github.com/Polyoxy.png"
+                  src="https://avatars.githubusercontent.com/Polyoxy"
                   alt="Polyoxy" 
                   fill
                   className="object-cover"
@@ -125,7 +125,7 @@ export default function AboutPage() {
             >
               <div className="w-32 h-32 rounded-full bg-gray-800 mb-4 overflow-hidden relative">
                 <Image 
-                  src="https://github.com/choppa1chop.png"
+                  src="https://avatars.githubusercontent.com/choppa1chop"
                   alt="choppa1chop" 
                   fill
                   className="object-cover"
