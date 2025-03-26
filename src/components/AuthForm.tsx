@@ -1,7 +1,7 @@
+'use client';
+
 import { useState } from 'react';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { motion } from 'framer-motion';
-import { auth } from '@/app/firebase';
 
 interface AuthFormProps {
   onSuccess: () => void;
@@ -18,14 +18,17 @@ const AuthForm = ({ onSuccess }: AuthFormProps) => {
     setError('');
     setLoading(true);
 
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      onSuccess();
-    } catch (err: any) {
-      setError(err.message || 'Failed to sign in. Please try again.');
-    } finally {
+    // Simple local authentication for demo purposes
+    setTimeout(() => {
+      if (email === 'admin@example.com' && password === 'password123') {
+        // Store mock token in localStorage
+        localStorage.setItem('auroraAdminToken', 'mock-jwt-token');
+        onSuccess();
+      } else {
+        setError('Invalid credentials. Try admin@example.com / password123');
+      }
       setLoading(false);
-    }
+    }, 1000);
   };
 
   return (
@@ -55,7 +58,7 @@ const AuthForm = ({ onSuccess }: AuthFormProps) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
-            placeholder="your@email.com"
+            placeholder="admin@example.com"
             required
           />
         </div>
@@ -70,7 +73,7 @@ const AuthForm = ({ onSuccess }: AuthFormProps) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
-            placeholder="••••••••"
+            placeholder="password123"
             required
           />
         </div>
@@ -82,6 +85,12 @@ const AuthForm = ({ onSuccess }: AuthFormProps) => {
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>
+
+        <div className="mt-6 text-center text-sm text-gray-500">
+          <p>For demo purposes use:</p>
+          <p className="mt-1">Email: admin@example.com</p>
+          <p>Password: password123</p>
+        </div>
       </form>
     </motion.div>
   );
