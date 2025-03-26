@@ -1,54 +1,87 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
-const Navbar = () => {
+export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Determine if scrolled past threshold
+      const isScrolled = currentScrollY > 50;
+      
+      // Determine scroll direction
+      if (currentScrollY > lastScrollY && currentScrollY > 150) {
+        // Scrolling down & past initial threshold
+        setHidden(true);
+      } else {
+        setHidden(false);
+      }
+      
+      setLastScrollY(currentScrollY);
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
   return (
     <motion.header 
-      className="fixed w-full top-0 z-50 bg-black/80 backdrop-blur-sm"
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-black/95 backdrop-blur-sm' : 'top-8'
+      } ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center">
-          <span className="text-2xl font-bold text-white">Aurora</span>
-        </Link>
-        
-        <nav className="hidden md:flex items-center gap-8">
-          <Link href="/work" className="text-white hover:text-gray-300 transition-colors">
-            Work
+      <div className="max-w-[95%] mx-auto">
+        <div className={`flex justify-between items-center px-16 ${scrolled ? 'py-3' : 'py-4'}`}>
+          <Link href="/" className="text-4xl font-bold text-white">
+            Aurora
           </Link>
-          <Link href="/services" className="text-white hover:text-gray-300 transition-colors">
-            Services
-          </Link>
-          <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
-            About us
-          </Link>
-          <Link href="/clients" className="text-white hover:text-gray-300 transition-colors">
-            Clients
-          </Link>
-        </nav>
-        
-        <Link 
-          href="/contact" 
-          className="hidden md:block px-5 py-2.5 rounded-full bg-gray-700 text-white font-medium hover:bg-gray-600 transition-colors"
-        >
-          Let's Collaborate
-        </Link>
-        
-        <button className="md:hidden text-white">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+          
+          <div className="hidden md:flex items-center space-x-14">
+            <Link href="/work" className="text-2xl text-white hover:text-gray-300">
+              Work
+            </Link>
+            <Link href="/services" className="text-2xl text-white hover:text-gray-300">
+              Services
+            </Link>
+            <Link href="/about" className="text-2xl text-white hover:text-gray-300">
+              About Us
+            </Link>
+            <Link href="/clients" className="text-2xl text-white hover:text-gray-300">
+              Clients
+            </Link>
+            
+            <Link 
+              href="/contact" 
+              className="rounded-[20px] bg-white px-7 py-2.5 text-2xl font-normal text-black transition-all duration-300 hover:bg-[#2dde98]"
+            >
+              Let's Collaborate
+            </Link>
+          </div>
+          
+          <button
+            onClick={toggleMenu}
+            className="text-3xl text-white focus:outline-none md:hidden"
+          >
+            {isMenuOpen ? '×' : '☰'}
+          </button>
+        </div>
       </div>
     </motion.header>
   );
-};
-
-export default Navbar; 
+} 
