@@ -33,42 +33,40 @@ export default function Home() {
   return (
     <div className="pt-24">
       {/* Hero Section */}
-      <section className="min-h-[80vh] flex flex-col justify-center relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative z-10">
-          <div className="blur-circle w-96 h-96 top-[-20%] right-[-10%] opacity-20 bg-gray-700 floating" />
-          <div className="blur-circle w-96 h-96 bottom-[-20%] left-[-10%] opacity-20 bg-gray-600 floating" style={{ animationDelay: '-4s' }} />
-          
+      <section className="min-h-[80vh] flex flex-col justify-center items-center relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative z-10 text-center">
           <motion.h1 
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-tight mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            We are a full-cycle partner,{' '}
-            <span className="text-gradient">empowering businesses</span> and people to lead their digital journeys
+            We are a full-cycle partner, empowering businesses and people to lead their digital journeys
           </motion.h1>
           
           <motion.div
-            className="flex flex-col sm:flex-row space-y-6 sm:space-y-0 sm:space-x-10 mb-12 mt-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="flex items-center space-x-2">
-              <span className="font-semibold text-2xl text-white">Brand</span>
+            <div className="flex items-center gap-8">
+              <div className="bg-neutral-800 rounded-xl px-6 py-3">
+                <span className="font-normal text-xl text-white">Brand</span>
+              </div>
               <span className="text-2xl text-white">+</span>
-            </div>
-            <div className="flex items-center space-x-2">
-              <span className="font-semibold text-2xl text-white">Website</span>
+              <div className="bg-neutral-800 rounded-xl px-6 py-3">
+                <span className="font-normal text-xl text-white">Website</span>
+              </div>
               <span className="text-2xl text-white">+</span>
-            </div>
-            <div className="flex items-center">
-              <span className="font-semibold text-2xl text-white">Product</span>
+              <div className="bg-neutral-800 rounded-xl px-6 py-3">
+                <span className="font-normal text-xl text-white">Product</span>
+              </div>
             </div>
           </motion.div>
           
           <motion.p 
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mb-8"
+            className="text-xl text-neutral-400 max-w-3xl mx-auto mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
@@ -80,10 +78,11 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex justify-center"
           >
             <Link 
               href="/contact" 
-              className="px-8 py-4 rounded-full bg-gray-700 text-white font-medium hover:bg-gray-600 transition-colors inline-block"
+              className="px-8 py-4 rounded-full bg-neutral-800 text-white font-normal hover:bg-neutral-700 transition-colors inline-block"
             >
               Let's Collaborate
             </Link>
