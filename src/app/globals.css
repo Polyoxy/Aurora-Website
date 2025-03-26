@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground: 255, 255, 255;
+  --background: 0, 0, 0;
+  --primary: 249, 115, 22;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground: 255, 255, 255;
+    --background: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground));
+  background: rgb(var(--background));
+  min-height: 100vh;
+}
+
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  transition: all 0.5s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+}
+
+.portfolio-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+  z-index: 1;
+}
+
+.portfolio-card-content {
+  position: relative;
+  z-index: 2;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--primary), 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.blur-circle {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(var(--primary), 0.5);
+  filter: blur(70px);
+  z-index: 0;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.floating {
+  animation: float 8s ease-in-out infinite;
+}
