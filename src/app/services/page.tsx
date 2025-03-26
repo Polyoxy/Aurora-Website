@@ -31,7 +31,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-orange-500">Strategy</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Strategy</h2>
             <p className="text-gray-300 mb-4">
               Develop a clear roadmap for your brand's digital success with our strategic consulting services.
             </p>
@@ -49,7 +49,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-orange-500">Design</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Design</h2>
             <p className="text-gray-300 mb-4">
               Create memorable visual experiences that resonate with your audience and strengthen your brand.
             </p>
@@ -67,7 +67,7 @@ export default function ServicesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-bold mb-4 text-orange-500">Development</h2>
+            <h2 className="text-2xl font-bold mb-4 text-white">Development</h2>
             <p className="text-gray-300 mb-4">
               Build scalable, high-performance digital products with our expert development team.
             </p>

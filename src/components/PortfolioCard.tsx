@@ -39,14 +39,14 @@ const PortfolioCard = ({ id, title, category, services, image, color = 'orange' 
         
         {/* Blur Circle */}
         <div 
-          className={`blur-circle w-64 h-64 top-[-20%] right-[-10%] opacity-20 ${color === 'orange' ? 'bg-orange-500' : 'bg-blue-500'}`}
+          className={`blur-circle w-64 h-64 top-[-20%] right-[-10%] opacity-20 bg-gray-700`}
         />
         
         {/* Content */}
         <div className="portfolio-card-content absolute inset-0 p-8 flex flex-col justify-end z-20">
           <div className="overflow-hidden">
             <motion.span 
-              className="text-sm font-medium text-orange-500 block mb-2"
+              className="text-sm font-medium text-gray-400 block mb-2"
               initial={{ y: 40 }}
               whileInView={{ y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}

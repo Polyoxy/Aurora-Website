@@ -35,8 +35,8 @@ export default function Home() {
       {/* Hero Section */}
       <section className="min-h-[80vh] flex flex-col justify-center relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24 relative z-10">
-          <div className="blur-circle w-96 h-96 top-[-20%] right-[-10%] opacity-20 bg-orange-500 floating" />
-          <div className="blur-circle w-96 h-96 bottom-[-20%] left-[-10%] opacity-20 bg-orange-700 floating" style={{ animationDelay: '-4s' }} />
+          <div className="blur-circle w-96 h-96 top-[-20%] right-[-10%] opacity-20 bg-gray-700 floating" />
+          <div className="blur-circle w-96 h-96 bottom-[-20%] left-[-10%] opacity-20 bg-gray-600 floating" style={{ animationDelay: '-4s' }} />
           
           <motion.h1 
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
@@ -55,15 +55,15 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="flex items-center space-x-2">
-              <span className="font-semibold text-2xl text-orange-500">Brand</span>
+              <span className="font-semibold text-2xl text-white">Brand</span>
               <span className="text-2xl text-white">+</span>
             </div>
             <div className="flex items-center space-x-2">
-              <span className="font-semibold text-2xl text-orange-500">Website</span>
+              <span className="font-semibold text-2xl text-white">Website</span>
               <span className="text-2xl text-white">+</span>
             </div>
             <div className="flex items-center">
-              <span className="font-semibold text-2xl text-orange-500">Product</span>
+              <span className="font-semibold text-2xl text-white">Product</span>
             </div>
           </motion.div>
           
@@ -83,7 +83,7 @@ export default function Home() {
           >
             <Link 
               href="/contact" 
-              className="px-8 py-4 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-600 transition-colors inline-block"
+              className="px-8 py-4 rounded-full bg-gray-700 text-white font-medium hover:bg-gray-600 transition-colors inline-block"
             >
               Let's Collaborate
             </Link>
@@ -107,7 +107,7 @@ export default function Home() {
             </div>
             <Link 
               href="/work" 
-              className="mt-6 sm:mt-0 text-orange-500 hover:text-orange-400 font-medium flex items-center group"
+              className="mt-6 sm:mt-0 text-gray-400 hover:text-white font-medium flex items-center group"
             >
               View All Work
               <svg 
@@ -151,7 +151,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-4xl font-bold text-orange-500 mb-2">150+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">150+</h3>
               <p className="text-gray-400">Projects completed over the years</p>
             </motion.div>
             
@@ -162,7 +162,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-4xl font-bold text-orange-500 mb-2">25+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">25+</h3>
               <p className="text-gray-400">Team members across the globe</p>
             </motion.div>
             
@@ -173,7 +173,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-4xl font-bold text-orange-500 mb-2">10+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">10+</h3>
               <p className="text-gray-400">Enterprise clients</p>
             </motion.div>
             
@@ -184,7 +184,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-4xl font-bold text-orange-500 mb-2">5M+</h3>
+              <h3 className="text-4xl font-bold text-white mb-2">5M+</h3>
               <p className="text-gray-400">Users impacted by our work every day</p>
             </motion.div>
           </div>
@@ -193,7 +193,7 @@ export default function Home() {
       
       {/* CTA Section */}
       <section className="py-24 relative overflow-hidden">
-        <div className="blur-circle w-96 h-96 top-[10%] right-[10%] opacity-20 bg-orange-600 floating" />
+        <div className="blur-circle w-96 h-96 top-[10%] right-[10%] opacity-20 bg-gray-600 floating" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative z-10">
           <motion.h2 

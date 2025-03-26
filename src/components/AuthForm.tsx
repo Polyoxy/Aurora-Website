@@ -81,7 +81,7 @@ const AuthForm = ({ onSuccess }: AuthFormProps) => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full px-6 py-3 rounded-lg bg-orange-500 text-white font-medium transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full px-6 py-3 rounded-lg bg-gray-700 text-white font-medium transition-colors hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? 'Signing in...' : 'Sign In'}
         </button>

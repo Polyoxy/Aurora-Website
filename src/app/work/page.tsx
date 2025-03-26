@@ -94,7 +94,7 @@ export default function WorkPage() {
               onClick={() => setFilter(category)}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                 filter === category 
-                  ? 'bg-orange-500 text-white' 
+                  ? 'bg-gray-700 text-white' 
                   : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
@@ -112,7 +112,7 @@ export default function WorkPage() {
               category={item.category}
               services={item.services}
               image={item.image}
-              color={index % 2 === 0 ? 'orange' : 'blue'}
+              color={index % 2 === 0 ? 'gray' : 'gray'}
             />
           ))}
         </div>

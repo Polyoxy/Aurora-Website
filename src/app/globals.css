@@ -4,13 +4,14 @@
 
 :root {
   --foreground: 255, 255, 255;
+  --foreground-muted: 156, 163, 175;
   --background: 0, 0, 0;
-  --primary: 249, 115, 22;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground: 255, 255, 255;
+    --foreground-muted: 156, 163, 175;
     --background: 0, 0, 0;
   }
 }
@@ -19,6 +20,15 @@ body {
   color: rgb(var(--foreground));
   background: rgb(var(--background));
   min-height: 100vh;
+}
+
+/* Text color utilities */
+.text-muted {
+  color: rgb(var(--foreground-muted));
+}
+
+.text-default {
+  color: rgb(var(--foreground));
 }
 
 .portfolio-card {
@@ -48,17 +58,10 @@ body {
   z-index: 2;
 }
 
-.text-gradient {
-  background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--primary), 0.7));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .blur-circle {
   position: absolute;
   border-radius: 9999px;
-  background: rgba(var(--primary), 0.5);
+  background: rgba(255, 255, 255, 0.1);
   filter: blur(70px);
   z-index: 0;
 }

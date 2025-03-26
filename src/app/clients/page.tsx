@@ -32,7 +32,7 @@ export default function ClientsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h2 className="text-2xl font-bold mb-8 text-orange-500">Featured Partners</h2>
+          <h2 className="text-2xl font-bold mb-8 text-white">Featured Partners</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
               <div key={item} className="flex items-center justify-center bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-8 h-32">
@@ -49,7 +49,7 @@ export default function ClientsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h2 className="text-2xl font-bold mb-8 text-orange-500">Client Testimonials</h2>
+          <h2 className="text-2xl font-bold mb-8 text-white">Client Testimonials</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-black/30 backdrop-blur-sm border border-gray-800 rounded-xl p-8">
               <p className="text-gray-300 italic mb-6">
@@ -87,7 +87,7 @@ export default function ClientsPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <h2 className="text-2xl font-bold mb-8 text-orange-500">Success Stories</h2>
+          <h2 className="text-2xl font-bold mb-8 text-white">Success Stories</h2>
           <div className="space-y-12">
             <div className="flex flex-col md:flex-row gap-8">
               <div className="md:w-1/3 aspect-video bg-gray-800 rounded-xl"></div>
@@ -97,7 +97,7 @@ export default function ClientsPage() {
                   We helped Quantum Technologies redefine their brand identity and digital presence, 
                   resulting in a 40% increase in user engagement and a 25% boost in conversion rates.
                 </p>
-                <a href="#" className="text-orange-500 flex items-center group">
+                <a href="#" className="text-gray-400 hover:text-white flex items-center group">
                   Read case study
                   <svg 
                     width="20" 
@@ -122,7 +122,7 @@ export default function ClientsPage() {
                   We developed a custom analytics dashboard for Nebula Inc., helping them visualize 
                   complex data and make informed business decisions, leading to a 35% improvement in operational efficiency.
                 </p>
-                <a href="#" className="text-orange-500 flex items-center group">
+                <a href="#" className="text-gray-400 hover:text-white flex items-center group">
                   Read case study
                   <svg 
                     width="20" 

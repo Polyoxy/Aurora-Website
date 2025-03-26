@@ -18,23 +18,23 @@ const Navbar = () => {
         </Link>
         
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/work" className="text-white hover:text-orange-500 transition-colors">
+          <Link href="/work" className="text-white hover:text-gray-300 transition-colors">
             Work
           </Link>
-          <Link href="/services" className="text-white hover:text-orange-500 transition-colors">
+          <Link href="/services" className="text-white hover:text-gray-300 transition-colors">
             Services
           </Link>
-          <Link href="/about" className="text-white hover:text-orange-500 transition-colors">
+          <Link href="/about" className="text-white hover:text-gray-300 transition-colors">
             About us
           </Link>
-          <Link href="/clients" className="text-white hover:text-orange-500 transition-colors">
+          <Link href="/clients" className="text-white hover:text-gray-300 transition-colors">
             Clients
           </Link>
         </nav>
         
         <Link 
           href="/contact" 
-          className="hidden md:block px-5 py-2.5 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-600 transition-colors"
+          className="hidden md:block px-5 py-2.5 rounded-full bg-gray-700 text-white font-medium hover:bg-gray-600 transition-colors"
         >
           Let's Collaborate
         </Link>

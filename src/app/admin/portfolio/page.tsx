@@ -115,7 +115,7 @@ export default function PortfolioManagementPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin"></div>
+        <div className="w-12 h-12 border-4 border-gray-500 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
   }
@@ -132,7 +132,7 @@ export default function PortfolioManagementPage() {
           <h1 className="text-4xl font-bold">Portfolio Management</h1>
           <Link 
             href="/admin" 
-            className="text-orange-500 hover:underline flex items-center"
+            className="text-gray-400 hover:text-white flex items-center"
           >
             <svg 
               width="20" 
@@ -170,7 +170,7 @@ export default function PortfolioManagementPage() {
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent text-white"
                     placeholder="e.g. Nebula Analytics Dashboard"
                     required
                   />
@@ -185,7 +185,7 @@ export default function PortfolioManagementPage() {
                     type="text"
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent text-white"
                     placeholder="e.g. Product Design"
                     required
                   />
@@ -200,7 +200,7 @@ export default function PortfolioManagementPage() {
                     type="text"
                     value={services}
                     onChange={(e) => setServices(e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent text-white"
                     placeholder="e.g. UI Design, UX Research, Development"
                     required
                   />
@@ -215,7 +215,7 @@ export default function PortfolioManagementPage() {
                     type="text"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent text-white"
+                    className="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-gray-500 focus:border-transparent text-white"
                     placeholder="/images/portfolio/project1.jpg"
                     required
                   />
@@ -224,7 +224,7 @@ export default function PortfolioManagementPage() {
                 <div className="flex gap-4">
                   <button
                     type="submit"
-                    className="px-6 py-2 rounded-lg bg-orange-500 text-white font-medium transition-colors hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    className="px-6 py-2 rounded-lg bg-gray-700 text-white font-medium transition-colors hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-900"
                   >
                     {isEditing ? 'Update Project' : 'Add Project'}
                   </button>
@@ -276,7 +276,7 @@ export default function PortfolioManagementPage() {
                     >
                       <div>
                         <h3 className="font-bold text-lg">{item.title}</h3>
-                        <p className="text-orange-500 text-sm">{item.category}</p>
+                        <p className="text-gray-400 text-sm">{item.category}</p>
                         <div className="flex flex-wrap gap-2 mt-2">
                           {item.services.map((service, index) => (
                             <span 
