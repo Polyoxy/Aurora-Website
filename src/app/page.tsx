@@ -162,26 +162,57 @@ function ParallaxProjectCard({
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"]
+    offset: ["start end", "end start"],
+    smooth: 0.5
   });
 
-  const y = useMotionTransform(scrollYProgress, [0, 1], [50, -50]);
-  const opacity = useMotionTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const y = useMotionTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -50],
+    {
+      clamp: false
+    }
+  );
+
+  const opacity = useMotionTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0.6, 1, 1, 0.6]
+  );
+
   const x = useMotionTransform(
     scrollYProgress,
     [0, 1],
-    direction === "left" ? [100, -100] : [-100, 100]
+    direction === "left" ? [50, -50] : [-50, 50],
+    {
+      clamp: false
+    }
   );
 
   return (
     <motion.div
       ref={ref}
-      style={{ y, opacity, x }}
-      className={className}
-      initial={{ opacity: 0, y: 50, x: direction === "left" ? 100 : -100 }}
+      style={{ 
+        y,
+        opacity,
+        x,
+        willChange: "transform",
+        translateZ: 0
+      }}
+      className={`${className} transform-gpu`}
+      initial={{ opacity: 0.6, y: 20, x: direction === "left" ? 50 : -50 }}
       whileInView={{ opacity: 1, y: 0, x: 0 }}
-      transition={{ duration: 0.8, delay }}
-      viewport={{ once: true, margin: "-50% 0px -50% 0px" }}
+      transition={{ 
+        duration: 1,
+        delay,
+        ease: [0.25, 0.1, 0.25, 1],
+      }}
+      viewport={{ 
+        once: true,
+        margin: "-50% 0px -50% 0px",
+        amount: 0.4
+      }}
     >
       {children}
     </motion.div>
@@ -190,30 +221,31 @@ function ParallaxProjectCard({
 
 export default function Home() {
   return (
-    <div className="pt-40">
+    <div className="pt-20 sm:pt-40 overflow-x-hidden">
       {/* Hero Section */}
       <section className="min-h-screen flex flex-col justify-center items-center relative overflow-hidden">
         <div className="max-w-[95%] w-full mx-auto px-4 sm:px-6 py-12 sm:py-20 relative z-10 text-center">
           {/* Main heading - with mobile responsiveness */}
-          <motion.h1 
-            className="text-4xl sm:text-6xl lg:text-8xl font-normal mx-auto text-white pb-12 sm:pb-24 max-w-[1400px]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="whitespace-normal sm:whitespace-nowrap px-4">We are a full-cycle partner,</div>
-            <div className="whitespace-normal sm:whitespace-nowrap px-4">empowering businesses and</div>
-            <div className="whitespace-normal sm:whitespace-nowrap px-4">people to lead their digital journeys</div>
-          </motion.h1>
+          <div className="space-y-8 sm:space-y-12">
+            <motion.h1 
+              className="text-[2.5rem] sm:text-6xl lg:text-8xl font-normal leading-tight mb-12 sm:mb-24"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="block whitespace-normal sm:whitespace-nowrap">We are a full-cycle partner,</span>
+              <span className="block whitespace-normal sm:whitespace-nowrap">empowering businesses and</span>
+              <span className="block whitespace-normal sm:whitespace-nowrap">people to lead their digital journeys</span>
+            </motion.h1>
+          </div>
           
           {/* "We unite" section - with mobile responsiveness */}
           <motion.div
-            className="mt-12 sm:mt-24 max-w-[1400px] mx-auto px-4"
+            className="max-w-[1400px] mx-auto px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            {/* First line */}
             <div className="flex flex-wrap justify-center items-center text-4xl sm:text-6xl lg:text-8xl font-normal">
               <span className="mr-4 text-[#808080]">We unite</span>
               <div className="bg-[#808080] hover:bg-[#2dde98] transition-colors duration-300 rounded-[32px] px-6 sm:px-10 py-2 sm:py-4 mx-2 my-2">
@@ -230,7 +262,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center items-center text-4xl sm:text-6xl lg:text-8xl font-normal mt-4">
               <div className="bg-[#808080] hover:bg-[#2dde98] transition-colors duration-300 rounded-[32px] px-6 sm:px-10 py-2 sm:py-4 mx-2 my-2">
                 <span className="font-normal text-black">Product</span>
-            </div>
+              </div>
               <span className="ml-4 text-[#808080]">under one vision.</span>
             </div>
           </motion.div>
@@ -400,13 +432,13 @@ export default function Home() {
                   </svg>
                 </Link>
               </div>
-              <div className="relative h-[400px] sm:h-[500px] lg:h-[600px]">
-                <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent lg:hidden"></div>
+              <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full">
                 <Image
                   src="/images/business-cards/Final-Front.png"
                   alt="Aurora Business Cards"
                   fill
                   className="object-contain"
+                  priority
                 />
               </div>
             </div>

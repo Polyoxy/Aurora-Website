@@ -42,48 +42,50 @@ export default function Navbar() {
   };
 
   return (
-    <motion.header
-      variants={variants}
-      initial="visible"
-      animate={hidden ? 'hidden' : 'visible'}
-      className={`fixed w-full z-50 transition-all duration-100 ${
-        scrolled ? 'bg-black/95 backdrop-blur-sm' : 'top-8'
-      }`}
-    >
-      <div className="max-w-[95%] mx-auto">
-        <div className={`flex justify-between items-center px-16 ${scrolled ? 'py-3.5' : 'py-4'}`}>
-          <Link href="/" className="text-4xl font-bold text-white">
-            Aurora
-          </Link>
-          
-          <div className="hidden md:flex items-center space-x-14">
-            <Link href="/work" className="text-[24px] text-white hover:text-gray-300">
-              Work
-            </Link>
-            <Link href="/services" className="text-[24px] text-white hover:text-gray-300">
-              Services
-            </Link>
-            <Link href="/about" className="text-[24px] text-white hover:text-gray-300">
-              About Us
-            </Link>
-            <Link href="/clients" className="text-[24px] text-white hover:text-gray-300">
-              Clients
+    <>
+      <motion.header
+        variants={variants}
+        initial="visible"
+        animate={hidden ? 'hidden' : 'visible'}
+        className={`fixed w-full z-50 transition-all duration-100 ${
+          scrolled ? 'bg-black/95 backdrop-blur-sm' : 'top-8'
+        }`}
+      >
+        <div className="max-w-[95%] mx-auto">
+          <div className={`flex justify-between items-center px-4 sm:px-16 ${scrolled ? 'py-3.5' : 'py-4'}`}>
+            <Link href="/" className="text-4xl font-bold text-white">
+              Aurora
             </Link>
             
-            <Link
-              href="/contact"
-              className="rounded-[20px] bg-white px-7 py-2.5 text-[24px] font-normal text-black transition-all duration-300 hover:bg-[#2dde98]"
+            <div className="hidden md:flex items-center space-x-14">
+              <Link href="/work" className="text-[24px] text-white hover:text-gray-300">
+                Work
+              </Link>
+              <Link href="/services" className="text-[24px] text-white hover:text-gray-300">
+                Services
+              </Link>
+              <Link href="/about" className="text-[24px] text-white hover:text-gray-300">
+                About Us
+              </Link>
+              <Link href="/clients" className="text-[24px] text-white hover:text-gray-300">
+                Clients
+              </Link>
+              
+              <Link
+                href="/contact"
+                className="rounded-[20px] bg-white px-7 py-2.5 text-[24px] font-normal text-black transition-all duration-300 hover:bg-[#2dde98]"
+              >
+                Let's Collaborate
+              </Link>
+            </div>
+            
+            <button
+              onClick={toggleMenu}
+              className="text-3xl text-white focus:outline-none md:hidden"
             >
-              Let's Collaborate
-            </Link>
+              {isMenuOpen ? '×' : '☰'}
+            </button>
           </div>
-          
-          <button
-            onClick={toggleMenu}
-            className="text-3xl text-white focus:outline-none md:hidden"
-          >
-            {isMenuOpen ? '×' : '☰'}
-          </button>
         </div>
 
         {/* Mobile Menu */}
@@ -97,45 +99,56 @@ export default function Navbar() {
           transition={{ duration: 0.3 }}
           className="md:hidden bg-black/95 backdrop-blur-sm overflow-hidden"
         >
-          <div className="px-4 py-6 space-y-6">
-            <Link 
-              href="/work" 
-              className="block text-2xl text-white hover:text-gray-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Work
-            </Link>
-            <Link 
-              href="/services" 
-              className="block text-2xl text-white hover:text-gray-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
-            <Link 
-              href="/about" 
-              className="block text-2xl text-white hover:text-gray-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About Us
-            </Link>
-            <Link 
-              href="/clients" 
-              className="block text-2xl text-white hover:text-gray-300"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Clients
-            </Link>
-            <Link
-              href="/contact"
-              className="block rounded-[20px] bg-white px-6 py-3 text-2xl font-normal text-black transition-all duration-300 hover:bg-[#2dde98] text-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Let's Collaborate
-            </Link>
-          </div>
+          <nav className="max-w-[95%] mx-auto">
+            <div className="px-4 sm:px-16 py-6 space-y-6">
+              <Link 
+                href="/work" 
+                className="block text-2xl text-white hover:text-gray-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Work
+              </Link>
+              <Link 
+                href="/services" 
+                className="block text-2xl text-white hover:text-gray-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link 
+                href="/about" 
+                className="block text-2xl text-white hover:text-gray-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link 
+                href="/clients" 
+                className="block text-2xl text-white hover:text-gray-300"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Clients
+              </Link>
+              <Link
+                href="/contact"
+                className="block rounded-[20px] bg-white px-6 py-3 text-2xl font-normal text-black transition-all duration-300 hover:bg-[#2dde98] text-center"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Let's Collaborate
+              </Link>
+            </div>
+          </nav>
         </motion.div>
-      </div>
-    </motion.header>
+      </motion.header>
+
+      {/* Dark Overlay */}
+      <motion.div
+        initial={false}
+        animate={isMenuOpen ? { opacity: 1, display: "block" } : { opacity: 0, display: "none" }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden"
+        onClick={() => setIsMenuOpen(false)}
+      />
+    </>
   );
 }

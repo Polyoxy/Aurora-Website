@@ -7,6 +7,9 @@ import { lotaGrotesque } from '@/fonts'
 export const metadata: Metadata = {
   title: 'Aurora | Agency',
   description: 'A full-cycle digital partner empowering businesses and people to lead their digital journeys.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
