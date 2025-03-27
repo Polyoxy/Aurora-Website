@@ -31,6 +31,39 @@ body {
   color: rgb(var(--foreground));
 }
 
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+.gradient-1 {
+  background: linear-gradient(135deg, #2dde98 0%, #2dde98e6 100%);
+}
+
+.gradient-2 {
+  background: linear-gradient(135deg, #6366f1 0%, #6366f1e6 100%);
+}
+
+.gradient-3 {
+  background: linear-gradient(135deg, #f43f5e 0%, #f43f5ee6 100%);
+}
+
+.gradient-4 {
+  background: linear-gradient(135deg, #8b5cf6 0%, #8b5cf6e6 100%);
+}
+
 .portfolio-card {
   position: relative;
   overflow: hidden;
@@ -80,4 +113,19 @@ body {
 
 .floating {
   animation: float 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
 }

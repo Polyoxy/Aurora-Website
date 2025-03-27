@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M50 20h300v60H50z" fill="none" stroke="#FFF" stroke-width="4"/>
+  <text x="200" y="65" fill="#FFF" font-family="sans-serif" font-size="48" text-anchor="middle" font-weight="bold">
+    eOne
+  </text>
+</svg> 

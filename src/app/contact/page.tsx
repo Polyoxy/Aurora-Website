@@ -45,7 +45,7 @@ export default function ContactPage() {
 
   return (
     <div className="pt-32 pb-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[95%] mx-auto px-16">
         <motion.div 
           className="max-w-2xl mx-auto text-center mb-12"
           initial={{ opacity: 0, y: 20 }}

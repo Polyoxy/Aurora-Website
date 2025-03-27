@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function AboutPage() {
   return (
     <div className="pt-32 pb-20 min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-[95%] mx-auto px-16">
         <motion.h1 
           className="text-4xl md:text-5xl font-bold mb-8"
           initial={{ opacity: 0, y: 20 }}
